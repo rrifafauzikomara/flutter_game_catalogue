@@ -31,6 +31,8 @@ dependencies:
   flutter_modular: ^2.0.1
   core:
     path: ../flutter_game_catalogue/module/core
+  feature_home:
+    path: ../flutter_game_catalogue/module/feature_home
 
 dev_dependencies:
   flutter_test:
