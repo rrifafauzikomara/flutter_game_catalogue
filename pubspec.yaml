@@ -29,6 +29,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
   flutter_modular: ^2.0.1
+  core:
+    path: ../flutter_game_catalogue/module/core
 
 dev_dependencies:
   flutter_test:
