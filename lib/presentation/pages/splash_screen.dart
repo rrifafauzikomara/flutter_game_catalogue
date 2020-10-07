@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_game_catalogue/domain/routers/splash_router.dart';
-import 'package:flutter_game_catalogue/external/image_strings.dart';
+import 'package:core/external/image_strings.dart';
 import 'package:flutter_game_catalogue/presentation/blocs/splash_bloc.dart';
 import 'package:flutter_game_catalogue/presentation/blocs/splash_event.dart';
 import 'package:flutter_game_catalogue/presentation/blocs/splash_state.dart';
