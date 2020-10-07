@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_game_catalogue/external/route_strings.dart';
+import 'package:core/external/route_strings.dart';
 import 'package:flutter_game_catalogue/presentation/pages/splash_screen.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -11,7 +11,9 @@ void main() {
 
 class AppModule extends MainModule{
   @override
-  List<Bind> get binds => [];
+  List<Bind> get binds => [
+    Bind((_) => RouteStrings()),
+  ];
 
   @override
   Widget get bootstrap => MyApp();
@@ -19,7 +21,7 @@ class AppModule extends MainModule{
   @override
   List<ModularRouter> get routers => [
     ModularRouter(
-      RouteStrings.splashScreenRoute,
+      Modular.get<RouteStrings>().splashScreenRoute,
       child: (context, args) => SplashScreen(),
     ),
   ];
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: RouteStrings.splashScreenRoute,
+      initialRoute: Modular.get<RouteStrings>().splashScreenRoute,
       navigatorKey: Modular.navigatorKey,
       onGenerateRoute: Modular.generateRoute,
     );
