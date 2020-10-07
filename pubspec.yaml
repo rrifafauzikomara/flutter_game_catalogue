@@ -35,6 +35,8 @@ dependencies:
     path: ../flutter_game_catalogue/module/feature_home
   feature_game:
     path: ../flutter_game_catalogue/module/feature_game
+  feature_contributor:
+    path: ../flutter_game_catalogue/module/feature_contributor
 
 dev_dependencies:
   flutter_test:
