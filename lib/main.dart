@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_game_catalogue/external/route_strings.dart';
+import 'package:flutter_game_catalogue/presentation/pages/splash_screen.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 void main() {
@@ -15,7 +17,12 @@ class AppModule extends MainModule{
   Widget get bootstrap => MyApp();
 
   @override
-  List<ModularRouter> get routers => [];
+  List<ModularRouter> get routers => [
+    ModularRouter(
+      RouteStrings.splashScreenRoute,
+      child: (context, args) => SplashScreen(),
+    ),
+  ];
 
 }
 
@@ -23,58 +30,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Game Catalogue',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      debugShowCheckedModeBanner: false,
+      initialRoute: RouteStrings.splashScreenRoute,
+      navigatorKey: Modular.navigatorKey,
+      onGenerateRoute: Modular.generateRoute,
     );
   }
 }
