@@ -1,3 +1,4 @@
+import 'package:feature_game/presentation/pages/home_screen.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class FeatureGameModule extends ChildModule {
@@ -5,5 +6,10 @@ class FeatureGameModule extends ChildModule {
   List<Bind> get binds => [];
 
   @override
-  List<ModularRouter> get routers => [];
+  List<ModularRouter> get routers => [
+        ModularRouter(
+          '/',
+          child: (_, __) => HomeScreen(),
+        ),
+      ];
 }
