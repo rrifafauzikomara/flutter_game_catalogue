@@ -32,8 +32,6 @@ dependencies:
   flutter_bloc: ^6.0.6
   core:
     path: ../flutter_game_catalogue/module/core
-  feature_home:
-    path: ../flutter_game_catalogue/module/feature_home
   feature_game:
     path: ../flutter_game_catalogue/module/feature_game
   feature_contributor:
