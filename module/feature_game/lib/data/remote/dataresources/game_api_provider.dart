@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:feature_game/domain/entities/GameResponse.dart';
+import 'package:feature_game/domain/entities/game_response.dart';
 import 'package:flutter/foundation.dart';
 
 abstract class GameApiProvider {

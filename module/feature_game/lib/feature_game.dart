@@ -10,7 +10,6 @@ import 'package:flutter_modular/flutter_modular.dart';
 class FeatureGameModule extends ChildModule {
   @override
   List<Bind> get binds => [
-        Bind((_) => ApiConstant()),
         Bind((_) =>
             Dio(BaseOptions(baseUrl: Modular.get<ApiConstant>().baseUrl))),
         Bind((_) => GameApiProviderImpl(dio: Modular.get<Dio>())),
