@@ -1,4 +1,4 @@
-name: feature_contributor
+name: feature_home
 description: A new Flutter package.
 version: 0.0.1
 author:
@@ -11,8 +11,13 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_modular: ^2.0.1
+  dio: ^3.0.10
   core:
     path: ../core
+  feature_game:
+    path: ../feature_game
+  feature_contributor:
+    path: ../feature_contributor
 
 dev_dependencies:
   flutter_test:
