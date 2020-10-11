@@ -1,9 +1,11 @@
+import 'package:feature_contributor/feature_contributor.dart';
 import 'package:feature_game/feature_game.dart';
 import 'package:flutter/material.dart';
 import 'package:core/external/route_strings.dart';
 import 'package:flutter_game_catalogue/presentation/blocs/splash_bloc.dart';
 import 'package:flutter_game_catalogue/presentation/pages/splash_screen.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:feature_home/feature_home.dart';
 
 void main() {
   runApp(ModularApp(
@@ -28,8 +30,16 @@ class AppModule extends MainModule {
           child: (context, args) => SplashScreen(),
         ),
         ModularRouter(
-          Modular.get<RouteStrings>().homeScreenRoute,
+          Modular.get<RouteStrings>().gameListRoute,
           module: FeatureGameModule(),
+        ),
+        ModularRouter(
+          Modular.get<RouteStrings>().homeScreenRoute,
+          module: FeatureHomeModule(),
+        ),
+        ModularRouter(
+          Modular.get<RouteStrings>().profileRoute,
+          module: FeatureContributorModule(),
         ),
       ];
 }
