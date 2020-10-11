@@ -5,9 +5,11 @@ import 'package:core/external/route_strings.dart';
 import 'package:flutter_game_catalogue/presentation/blocs/splash_bloc.dart';
 import 'package:flutter_game_catalogue/presentation/pages/splash_screen.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:core/core.dart';
 import 'package:feature_home/feature_home.dart';
 
 void main() {
+  Modular.init(CoreModule());
   runApp(ModularApp(
     module: AppModule(),
   ));
@@ -16,7 +18,6 @@ void main() {
 class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
-        Bind((_) => RouteStrings()),
         Bind((_) => SplashBloc()),
       ];
 
