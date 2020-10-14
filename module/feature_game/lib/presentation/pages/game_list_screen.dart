@@ -1,3 +1,4 @@
+import 'package:feature_game/domain/routers/game_list_router.dart';
 import 'package:feature_game/external/date_formatter.dart';
 import 'package:feature_game/presentation/bloc/game_bloc.dart';
 import 'package:feature_game/presentation/bloc/game_event.dart';
@@ -7,13 +8,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class GameListScreen extends StatelessWidget {
+  final GameListRouter _gameListRouter = GameListRouterImpl();
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => Modular.get<GameBLoc>()..add(LoadGameList()),
       child: Scaffold(
         backgroundColor: Colors.white38,
-        appBar: AppBar(),
+        appBar: AppBar(
+          elevation: 0.0,
+        ),
         body: BlocBuilder<GameBLoc, GameState>(builder: (context, state) {
           if (state is GameLoadedState) {
             return ListView.builder(
@@ -34,9 +39,8 @@ class GameListScreen extends StatelessWidget {
                       ],
                     ),
                     child: InkWell(
-                      onTap: (){
-
-                      },
+                      onTap: () => _gameListRouter.goToGameDetail(
+                          "${state.gameResponse.results[index].id}"),
                       child: Row(
                         children: [
                           ClipRRect(
@@ -50,7 +54,8 @@ class GameListScreen extends StatelessWidget {
                           ),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
+                              padding:
+                                  EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -66,7 +71,9 @@ class GameListScreen extends StatelessWidget {
                                     padding: EdgeInsets.only(top: 8.0),
                                     child: Text(
                                         DateFormatter.dateFormatter(state
-                                            .gameResponse.results[index].released),
+                                            .gameResponse
+                                            .results[index]
+                                            .released),
                                         style: TextStyle(
                                             fontWeight: FontWeight.normal,
                                             color: Colors.lightBlue,
@@ -75,8 +82,10 @@ class GameListScreen extends StatelessWidget {
                                   Padding(
                                     padding: EdgeInsets.only(top: 8.0),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
                                       children: [
                                         Icon(
                                           Icons.star,
@@ -84,7 +93,7 @@ class GameListScreen extends StatelessWidget {
                                           size: 16.0,
                                         ),
                                         Padding(
-                                          padding: EdgeInsets.only(left:8.0),
+                                          padding: EdgeInsets.only(left: 8.0),
                                           child: Text(
                                               "${state.gameResponse.results[index].rating}/5.00",
                                               style: TextStyle(
