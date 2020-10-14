@@ -1,8 +1,8 @@
 import 'package:feature_game/domain/routers/game_list_router.dart';
 import 'package:feature_game/external/date_formatter.dart';
-import 'package:feature_game/presentation/bloc/game_bloc.dart';
-import 'package:feature_game/presentation/bloc/game_event.dart';
-import 'package:feature_game/presentation/bloc/game_state.dart';
+import 'package:feature_game/presentation/bloc/game_list_bloc/game_bloc.dart';
+import 'package:feature_game/presentation/bloc/game_list_bloc/game_event.dart';
+import 'package:feature_game/presentation/bloc/game_list_bloc/game_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
